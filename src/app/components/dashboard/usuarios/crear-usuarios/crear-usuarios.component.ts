@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ListUsuarios, UsuariosService } from 'src/app/services/usuarios.service';
@@ -14,6 +15,8 @@ import Swal from 'sweetalert2';
 export class CrearUsuariosComponent implements OnInit {
    id : String| null;
   titulo = 'Agregar Usuario';
+  mensaje : String ="";
+
   formulario = this.fb.group({
     idUsuario: [''],
     nombre : ['',Validators.required],
@@ -24,7 +27,11 @@ export class CrearUsuariosComponent implements OnInit {
     telefono : ['', Validators.required],
     direccion : ['', Validators.required]
   });
-  constructor(private fb: FormBuilder,private usuarioServices : UsuariosService, private router: Router, private oRouter: ActivatedRoute  ) { 
+  constructor(private fb: FormBuilder,
+    private usuarioServices : UsuariosService,
+    private router: Router,
+    private oRouter: ActivatedRoute,
+    private  _snackBar: MatSnackBar   ) { 
 
       this.id = this.oRouter.snapshot.paramMap.get('id');
       console.log(this.id);
@@ -47,40 +54,32 @@ export class CrearUsuariosComponent implements OnInit {
   crear_usuario(){
    //console.log(this.formulario.value);
     this.usuarioServices.createUser (this.formulario.value).subscribe(resp=>{
-      Swal.fire({
-        icon: 'success',
-        title: 'Creado',
-        text: 'Se Agrego Correctamente'
-      })
+      this.confirmacion();
       this.router.navigate(['/dashboard/usuarios']);
     },
     error=>{
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Algo salio Mal Al crear el Usuario!',
-        footer: '<a href="">Why do I have this issue?</a>'
-      })
+      this.error();
     }); 
   }
 
   editarUsuario(){
     //console.log(this.formulario.value);
     this.usuarioServices.updateUsuario(this.formulario.value).subscribe(res=>{
-      Swal.fire({
-        icon: 'success',
-        title: 'Actualizado!!',
-        text: 'Se Actualizo Correctamente'
-      })
+     this._snackBar.open('Usuario Actualizado Correctamente!!','',{
+       verticalPosition:'bottom',
+       horizontalPosition:'end',
+       duration:5000,
+       panelClass:['succesNoMatch']
+     });
       this.router.navigate(['/dashboard/usuarios']);
     },
     error=>{
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Algo salio mal Al Actualizar!',
-        footer: '<a href="">Why do I have this issue?</a>'
-      })
+      this._snackBar.open('Error Al Actualizar Usuario!!','',{
+        verticalPosition:'bottom',
+        horizontalPosition:'end',
+        duration:5000,
+        panelClass:['redNoMatch']
+      });
     });
   }
 
@@ -102,4 +101,23 @@ export class CrearUsuariosComponent implements OnInit {
       })
     }
   }
+  confirmacion(){
+    this._snackBar.open('Usuario Creado Correctamente!!!','',{
+      verticalPosition:'bottom',
+      horizontalPosition:'end',
+      duration: 5000,
+      panelClass:['succesNoMatch']
+    })
+  }
+
+  error(){
+    this._snackBar.open('Error Al crear Usuario','',{
+      horizontalPosition:'end',
+      verticalPosition:'bottom',
+      duration:5000,
+      panelClass:['redNoMatch']
+    })
+
+  }
+
 }

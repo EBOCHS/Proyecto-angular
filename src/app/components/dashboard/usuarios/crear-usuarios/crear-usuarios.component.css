@@ -7,3 +7,14 @@
   .cart{
     margin-top: 20px;
   }
+  
+  ::ng-deep .succesNoMatch
+{
+  color:white;
+  background: green !important;
+}
+  ::ng-deep .redNoMatch
+{
+  color:white;
+  background: #F44336 !important;
+}

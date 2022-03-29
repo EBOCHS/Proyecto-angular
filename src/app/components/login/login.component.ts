@@ -36,12 +36,7 @@ export class LoginComponent implements OnInit {
     this.algoritmos();
     
   }
-  openSnackBar() {
-    this._snackBar.openFromComponent(LoginComponent, {
-      duration: this.durationInSeconds * 1000,
-    });
-  }
-
+  
 usuarioIngresando(){
   console.log(this.formulario.value);
   this.loginServices.autentificacionUsuario(this.formulario.value).subscribe(resp=>{
@@ -49,6 +44,7 @@ usuarioIngresando(){
     if(resp===true){
       this.loading();
     }else{
+      this.error();
       this.rout.navigate(['']);
       this.formulario.reset();
     }
@@ -82,6 +78,14 @@ algoritmos(){
     fibo1 = fibo2 - fibo1;
   }
   console.log("El fibonacci de: "+numFibo +" Es:"+ fibo2);
+}
+error(){
+  this._snackBar.open("Usuario o Contraseña incorrectos!!!",'',{
+    horizontalPosition:'end' ,
+    verticalPosition:'top', 
+    duration: 5000,
+    panelClass: ['redNoMatch']
+  })
 }
 
 }
