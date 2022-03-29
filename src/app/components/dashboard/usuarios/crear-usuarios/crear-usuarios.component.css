@@ -1,0 +1,9 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .ancho{
+      width: 90%;
+  }
+  .cart{
+    margin-top: 20px;
+  }

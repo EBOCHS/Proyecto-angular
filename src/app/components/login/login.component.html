@@ -1,0 +1,20 @@
+<div class="contenedor">
+  <mat-spinner diameter="50" class="spinner" *ngIf="valLoading"></mat-spinner>
+
+    <div class="formImputs" *ngIf="!valLoading">
+        <img src="./../../../assets/img/team.png" style="width: 150px; height: 150px;" >
+        <h1>Login</h1>
+        <form class="example-form" [formGroup]="formulario" (ngSubmit)="usuarioIngresando()">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Usuario</mat-label>
+              <input matInput placeholder="user"  autocomplete="off" formControlName="nombre" >
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password"  placeholder="user" autocomplete="off" formControlName="contrasena" >
+            </mat-form-field>
+            <button mat-flat-button color="primary"  mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar"type="submit" class="tamaño" >Ingresar</button>
+          </form>
+    </div>
+</div>

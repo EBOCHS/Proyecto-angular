@@ -1,0 +1,68 @@
+<div class="container">
+    <p>
+        <mat-toolbar>
+          <span>
+            Bienvenidos Al Sistema De Gestión De Usuarios.
+          </span>
+          <div class="ancho"> 
+           <!--icono de whatsapp-->
+            <a amat-raised-button class="hover"
+              matTooltip="whatsapp"
+              aria-label="Button that displays a tooltip when focused or hovered over"
+            >
+              <img src="./../../../../assets/img/whatsapp.png" style="width: 40px;height: 40px; " >
+            </a>
+            <!--icono de facebook-->
+            <a amat-raised-button class="hover" href="https://www.facebook.com/erickalexander.boch"
+            matTooltip="facebook"
+            aria-label="Button that displays a tooltip when focused or hovered over">
+            <img src="./../../../../assets/img/facebook.png" style="width: 40px;height: 40px; " >
+            </a>
+
+            <!--icono de instagram-->
+            <a amat-raised-button class="hover" 
+            matTooltip="instagram"
+            aria-label="Button that displays a tooltip when focused or hovered over">
+            <img src="./../../../../assets/img/instagram.png" style="width: 40px;height: 40px; " >
+            </a>
+          </div>
+          
+        </mat-toolbar>
+      </p>
+      
+      <mat-grid-list cols="3" rowHeight="2:3" >
+        <mat-grid-tile *ngFor="let item of lisPokemon"  >
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar  style= " background-image: url({{item.sprites.front_default}});background-size: cover; "></div>
+              <mat-card-title>{{item.species.name}}</mat-card-title>
+              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img  src={{item.sprites.front_default}} style="width: 150px;" >
+            <mat-card-content>
+              <p>
+                {{item.ability}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+          
+          <!--
+          <mat-card class="example-card" >
+            <mat-card-title-group>
+              <mat-card-title> {{item.species.name}}</mat-card-title>
+              <mat-card-subtitle></mat-card-subtitle>
+              <img mat-card-sm-image src={{item.sprites.front_default}} style="width: 100px; height: 100px;" >
+            </mat-card-title-group>
+            <mat-card-content>
+              {{longText}}
+            </mat-card-content>
+          </mat-card>
+        -->
+        </mat-grid-tile>
+      </mat-grid-list>
+      
+</div>

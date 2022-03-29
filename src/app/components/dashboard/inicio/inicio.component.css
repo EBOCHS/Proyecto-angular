@@ -1,0 +1,29 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .ancho{
+      width: 60%;
+      display: flex;
+      justify-content:end;
+      align-items: center;
+  }
+  img{
+      margin-left: 10px;
+  }
+  .hover {
+    transition: all 400ms;
+    cursor: pointer;
+  }
+.hover:hover {
+    transform:scale(1.1);
+}
+  
+mat-grid-tile {
+  background: rgba(255, 255, 255, 0);
+}
+
+.example-card {
+  max-width: 300px;
+  height: 80%;
+}
+
