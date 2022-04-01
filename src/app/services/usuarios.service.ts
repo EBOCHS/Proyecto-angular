@@ -18,7 +18,7 @@ export interface ListUsuarios {
 
 export class UsuariosService {
 
-  private urlUsuarios = 'http://localhost:8080';
+  private urlUsuarios = 'https://apijavaspringboot.herokuapp.com';
 
   constructor(private http:HttpClient ) { }
 
