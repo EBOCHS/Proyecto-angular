@@ -16,7 +16,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 //import {NgxQRCodeModule } from 'ngx-qrcode';
 //nesesario para los formularios reactivos 
 import { ReactiveFormsModule } from '@angular/forms';
-//import { QRCodeComponent, QRCodeModule } from 'angularx-qrcode';
+//forceimport { QRCodeComponent, QRCodeModule } from 'angularx-qrcode';
 //import { QRCodeModule } from 'angularx-qrcode';
 @NgModule({
   declarations: [],

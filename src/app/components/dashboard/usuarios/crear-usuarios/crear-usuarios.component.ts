@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -27,7 +27,7 @@ export class CrearUsuariosComponent implements OnInit {
     telefono : ['', Validators.required],
     direccion : ['', Validators.required]
   });
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
     private usuarioServices : UsuariosService,
     private router: Router,
     private oRouter: ActivatedRoute,

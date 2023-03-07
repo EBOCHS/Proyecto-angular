@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
@@ -18,12 +18,12 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class LoginComponent implements OnInit {
   usuario : any;
-  formulario : FormGroup;
+  formulario : UntypedFormGroup;
   durationInSeconds = 5;
   
   valLoading = false;
   constructor(private  loginServices: UsuariosService ,
-     private fb : FormBuilder, private rout : Router,
+     private fb : UntypedFormBuilder, private rout : Router,
      private _snackBar: MatSnackBar  ) { 
       this.formulario = this.fb.group({
         nombre : ['', Validators.required],
