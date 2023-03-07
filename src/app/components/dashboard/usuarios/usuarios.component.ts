@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { ListUsuarios, UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 export interface PeriodicElement {
