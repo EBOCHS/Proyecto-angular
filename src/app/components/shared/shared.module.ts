@@ -13,12 +13,15 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatRippleModule} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+//import {NgxQRCodeModule } from 'ngx-qrcode';
 //nesesario para los formularios reactivos 
 import { ReactiveFormsModule } from '@angular/forms';
+//import { QRCodeComponent, QRCodeModule } from 'angularx-qrcode';
+//import { QRCodeModule } from 'angularx-qrcode';
 @NgModule({
   declarations: [],
   imports: [
+  
     CommonModule,
     MatToolbarModule,
     MatIconModule,
@@ -32,7 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTooltipModule,
     MatRippleModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    
   ],
   exports:[
     MatToolbarModule,

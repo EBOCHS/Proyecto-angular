@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-
 import { ListUsuarios, UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 export interface PeriodicElement {
@@ -35,7 +34,7 @@ export class UsuariosComponent implements OnInit {
   ELEMENT_DATA: ListUsuarios[] = [];
   dataSource = new MatTableDataSource<ListUsuarios> (this.ELEMENT_DATA);
 
-  displayedColumns: string[] = ['id', 'nombre', 'Apellido', 'Contraseña','Correo','Telefono','Direccion','Aciones'];
+  displayedColumns: string[] = ['id', 'nombre', 'Apellido', 'Contraseña','Correo','Telefono','Direccion','QR','Aciones'];
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
