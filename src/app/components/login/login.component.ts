@@ -10,10 +10,10 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   styleUrls: ['./login.component.css'],
   styles: [
     `
-    .example-pizza-party {
-      color: hotpink;
-    }
-  `,
+         .example-pizza-party {
+           color: hotpink;
+         }
+       `,
   ]
 })
 export class LoginComponent implements OnInit {
